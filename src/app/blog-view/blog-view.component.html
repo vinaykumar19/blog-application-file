@@ -1,12 +1,12 @@
 <div class="container">
-        <div class="row" *ngIf="cuurentBlog">
+        <div class="row" *ngIf="currentBlog">
             <div class="col-md-12">
                 <h2>{{currentBlog.title}}</h2>
                 <!--<small> blog number - {{currentBlog.blogId}} </small>-->
                 <p>posted by {{currentBlog.author}} on {{currentBlog.created | date}}</p>
-                <p *ngIf="currentBlog.tags.lenght!=undefined && currentBlog.tags.length>0">tags : <span *ngFor="let tag of currentBlog.tags;let first=first; let last=last">{{tag}}{{last ? '': ', '}}</span>
+                <p *ngIf="currentBlog.tags.lenght!=undefined && currentBlog.tags.length>0">tags : <span *ngFor="let tag of currentBlog.tags;let first=first;let last=last">{{tag}}{{last ? '' : ', '}}</span></p>
                         
-                </p>
+                
     
                 <hr>
                 <div [innerHtml]="currentBlog.bodyHtml"></div>

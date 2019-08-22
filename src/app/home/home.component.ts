@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   public allBlogs = [
     {
       "blogId": "1",
-      "tags": [],
+      "lastModified":"2017-10-20T12:20:47.854Z",
+      "created":"2017-10-20T12:20:47.854Z",
+      "tags": ["humour","standup comedy"],
       "author": "Admin",
       "category": "comedy",
       "isPublished": true,
@@ -29,7 +31,9 @@ export class HomeComponent implements OnInit {
     },
     {
       "blogId": "2",
-      "tags": [],
+      "lastModified":"2017-10-21T21:47:51.678Z",
+      "created":"2017-10-21T21:47:51:678Z",
+      "tags": ["humour","standup comedy"],
       "author": "Admin",
       "category": "comedy",
       "isPublished": true,
@@ -40,7 +44,9 @@ export class HomeComponent implements OnInit {
     },
     {
       "blogId": "3",
-      "tags": [],
+      "lastModified":"2017-11-14T14:15:54.407Z",
+      "created":"2017-11-14T14:15:54.407Z",
+      "tags": ["humour","standup comedy"],
       "author": "Admin",
       "category": "comedy",
       "isPublished": true,
