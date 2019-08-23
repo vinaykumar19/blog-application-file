@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     {
       "blogId": "2",
       "lastModified":"2017-10-21T21:47:51.678Z",
-      "created":"2017-10-21T21:47:51:678Z",
+      "created":"2017-10-21T21:47:51.678Z",
       "tags": ["humour","standup comedy"],
       "author": "Admin",
       "category": "comedy",
