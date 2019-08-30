@@ -14,6 +14,9 @@ import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+//import statement for service
+import { BlogService } from "./blog.service";
+
 //decorators
 @NgModule({
   declarations: [
@@ -42,7 +45,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 
   ],
-  providers: [],
+  providers: [BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

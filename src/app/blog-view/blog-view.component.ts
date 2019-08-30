@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 // importing route related code
 import { ActivatedRoute, Router } from "@angular/router";
+import { BlogService } from '../blog.service';
 
 
 @Component({
@@ -8,84 +9,48 @@ import { ActivatedRoute, Router } from "@angular/router";
   templateUrl: './blog-view.component.html',
   styleUrls: ['./blog-view.component.css']
 })
-export class BlogViewComponent implements OnInit {
+export class BlogViewComponent implements OnInit,OnDestroy {
 
   //empty object
   public currentBlog;
 
-  // declare a dummy blog variable here
-  public allBlogs = [
-    {
-      "blogId": "1",
-      "lastModified":"2017-10-20T12:20:47.854Z",
-      "created":"2017-10-20T12:20:47.854Z",
-      "tags": ["humour","standup comedy"],
-      "author": "Admin",
-      "category": "comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml": "this is blog body",
-      "description": "this is blog 1 description",
-      "title": "This is blog 1"
-    },
-    {
-      "blogId": "2",
-      "lastModified":"2017-10-21T21:47:51.678Z",
-      "created":"2017-10-21T21:47:51.678Z",
-      "tags": ["humour","standup comedy"],
-      "author": "Admin",
-      "category": "comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml": "<h1>This big text</h1> <p>small text</p>",
-      "description": "This is the description of the example blog and this is edited",
-      "title": "This is an example blog"
-    },
-    {
-      "blogId": "3",
-      "lastModified":"2017-11-14T14:15:54.407Z",
-      "created":"2017-11-14T14:15:54.407Z",
-      "tags": ["humour","standup"],
-      "author": "Admin",
-      "category": "comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml": "this is the blog body. this is the blog body",
-      "description": "this is the third blog description",
-      "title": "this is the third blog"
-    }
-  ]
 
 
 
 
-  constructor(private _route: ActivatedRoute, private router: Router) {
-    console.log("constructor is called");
+
+  constructor(private _route: ActivatedRoute, private router: Router,public blogService :BlogService) {
+    console.log("blog view  constructor is called");
 
   }
 
   ngOnInit() {
-    console.log("ngOnInitCalled");
+    console.log("blog view ngOnInitCalled");
     // getting the blog id from the route
     let myBlogId = this._route.snapshot.paramMap.get('blogId');
     console.log(myBlogId);
-
     // calling the function to get the blog with this blogId out of the overall array
-    this.getSingleBlogInformation(myBlogId);
+    this.currentBlog=this.blogService.getSingleBlogInformation(myBlogId);
+   
+    console.log(this.currentBlog);
+         
   }
 
-  public getSingleBlogInformation(currentBlogId): any {
-    // using a for of loop here from type script
-    // https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html
-    for (let blog of this.allBlogs) {
-      if (blog.blogId == currentBlogId) {
+ngOnDestroy(){
 
-        this.currentBlog = blog;
-      }
+  console.log("blog view destroyed")
+}
 
-    }
-    console.log(this.currentBlog);
+
+
+
+
+
+
+
+
+
 
   }// end get blog information function
 
-}
+
