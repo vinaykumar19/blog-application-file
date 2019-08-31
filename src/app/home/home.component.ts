@@ -2,6 +2,7 @@
 //this is a by default statement 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogService } from '../blog.service';
+import { BlogHttpService } from '../blog-http.service';
 
 
 //decorator
@@ -16,11 +17,11 @@ import { BlogService } from '../blog.service';
 export class HomeComponent implements OnInit, OnDestroy{
 
 
-  public allBlogs;
+  public allBlogs=[];
 
 
 
-  constructor(public blogService:BlogService) {
+  constructor(public blogService:BlogService, public blogHttpService:BlogHttpService) {
 
     console.log("Home component constructor called")
    }
@@ -28,7 +29,19 @@ export class HomeComponent implements OnInit, OnDestroy{
   ngOnInit() {
     console.log("Home component OnInit called");
 
-    this.allBlogs=this.blogService.getAllBlogs();
+    this.allBlogs=this.blogHttpService.getAllBlogs().subscribe(
+    
+            data =>{
+              console.log(data);
+              this.allBlogs =data["data"];
+            },
+        error =>{
+          console.log("some error occured");
+          console.log(error.errorMessage)
+        }
+
+
+    );
   
     console.log(this.allBlogs);
   }
