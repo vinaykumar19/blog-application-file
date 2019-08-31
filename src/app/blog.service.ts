@@ -9,7 +9,7 @@ public allBlogs = [
     "blogId": "1",
     "lastModified":"2017-10-20T12:20:47.854Z",
     "created":"2017-10-20T12:20:47.854Z",
-    "tags": ["humour","standup comedy"],
+    "tags": ["humour","standup comedy","tag3","tag4"],
     "author": "Admin",
     "category": "comedy",
     "isPublished": true,
