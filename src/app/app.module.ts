@@ -17,6 +17,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 //import statement for service
 import { BlogService } from "./blog.service";
 import { BlogHttpService } from './blog-http.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //decorators
 @NgModule({
@@ -31,6 +33,8 @@ import { BlogHttpService } from './blog-http.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    
     //routerModules forRoot method to declare the possible routes in application.
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
