@@ -4,8 +4,8 @@ import { HttpClient , HttpErrorResponse } from '@angular/common/http';
 
 // import observable related code
  import { Observable } from 'rxjs';
- import 'rxjs/add/operator/catch';
- import 'rxjs/add/operator/do';
+ 
+
 
 @Injectable({
   providedIn: 'root'
