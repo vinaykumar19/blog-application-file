@@ -50,5 +50,25 @@ let myResponse = this._http.get(this.baseUr1+'/view'+'/'+currentBlogId+'?authTok
 return myResponse;
 }// end get blog information function
 
+public createBlog(blogData):any{
+  let myResponse = this._http.post(this.baseUr1+'/create'+'?authToken=' + this.authToken, blogData)
+
+return myResponse;
+}//end create blog
+
+public deleteBlog(blogId):any{
+ 
+  let data={}
+let myResponse = this._http.post(this.baseUr1+'/'+blogId+'/delete'+'?authToken='+this.authToken,data)
+
+return myResponse;
+}// end delete blog
+
+public editBlog(blogId,blogData):any{
+
+  let myResponse = this._http.put(this.baseUr1+'/'+blogId+'/edit'+'?authToken='+this.authToken, blogData)
+
+  return myResponse;
+}// end delete blog
 
 }
