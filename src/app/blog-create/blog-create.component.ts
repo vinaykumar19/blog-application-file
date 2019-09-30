@@ -9,7 +9,7 @@ import { BlogHttpService } from '../blog-http.service';
 })
 export class BlogCreateComponent implements OnInit {
 
-  constructor(private blogHttpService: BlogHttpService) { }
+  constructor(public blogHttpService: BlogHttpService) { }
 
   public blogTitle:string;
   public blogBodyHtml:string;
