@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 
 //router module used for setting up the application level route
@@ -40,6 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastModule.forRoot(),
     //routerModules forRoot method to declare the possible routes in application.
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
