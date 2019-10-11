@@ -4,7 +4,7 @@
                 <h2>{{currentBlog.title}}</h2>
                 <!--<small> blog number - {{currentBlog.blogId}} </small>-->
                 <p>posted by {{currentBlog.author}} on {{currentBlog.created | date}}</p>
-                <p *ngIf="currentBlog.tags.length!=undefined && currentBlog.tags.length>0">tags : <span *ngFor="let tag of currentBlog.tags; let first =first; let last=last">{{tag}} {{last ? '' : ', '}}</span></p>
+                <p *ngIf="currentBlog.tags && currentBlog.tags.length!=undefined && currentBlog.tags.length>0">tags : <span *ngFor="let tag of currentBlog.tags; let first =first; let last=last">{{tag}} {{last ? '' : ', '}}</span></p>
                         
                 
     
