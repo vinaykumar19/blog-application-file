@@ -3,12 +3,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { BlogService } from '../blog.service';
 import { BlogHttpService } from '../blog-http.service';
+import { ToastrService } from "ngx-toastr";
+import { Location } from "@angular/common";
 
 
 @Component({
   selector: 'app-blog-view',
   templateUrl: './blog-view.component.html',
-  styleUrls: ['./blog-view.component.css']
+  styleUrls: ['./blog-view.component.css'],
+  providers:[Location]
 })
 export class BlogViewComponent implements OnInit,OnDestroy {
 
@@ -20,7 +23,7 @@ export class BlogViewComponent implements OnInit,OnDestroy {
 
 
 
-  constructor(private _route: ActivatedRoute, private router: Router,public blogService :BlogService,public blogHttpService:BlogHttpService) {
+  constructor(private _route: ActivatedRoute, private router: Router,public blogService :BlogService,public blogHttpService:BlogHttpService ,private toastr:ToastrService, private location: Location) {
     console.log("blog view  constructor is called");
 
   }
@@ -45,6 +48,40 @@ error =>{
     )
          
   }
+
+   public deleteThisBlog():any{
+
+     this.blogHttpService.deleteBlog(this.currentBlog.blogId).subscribe(
+
+      data=>{
+       console.log(data);
+       this.toastr.success('Blog Deleted successfully','Success');
+       setTimeout(()=>{
+      this.router.navigate(['/home']);
+       }, 1000)
+
+      },
+    error => {
+      console.log("some error occured");
+      console.log(error.errorMessage);
+      this.toastr.error('some error occured','Error');
+    }
+
+
+
+
+
+
+     )
+
+   }// end delete this blog
+
+    public goBackToPreviousPage(): any{
+  
+      this.location.back();
+
+    }
+
 
 ngOnDestroy(){
 
